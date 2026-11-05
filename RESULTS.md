@@ -148,7 +148,7 @@ Compare the two tools you used. Include:
 
 **Answer:**
 
-Robot Framework uses explicit waits such as Wait Until Element Is Visible, while Cypress automatically retries commands and assertions. My Robot runs took about 10.237 and 9.259 seconds, while the Cypress full runs took 16 and 20 seconds and included both specs. Robot logs were easy to follow by keyword, while Cypress screenshots and videos made the browser behavior easy to review.
+Robot Framework uses explicit waits such as `Wait Until Element Is Visible`, while Cypress automatically retries commands and assertions. I found Cypress quicker to write for QP-01 because it needed fewer explicit waiting steps, while Robot Framework required more keywords but made the scenario easy to read. Robot logs were easy to follow by keyword, while Cypress screenshots and videos made the browser behavior easy to review.
 
 ---
 
