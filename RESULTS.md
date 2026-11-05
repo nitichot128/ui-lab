@@ -94,14 +94,14 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
   `Lab Pizza 20261105-100516 (tool=Pizza cutter, ingredients_number=5)`
 
 - **Step 4.8, run 1:**
-  - Result: `____________________________`
-  - Duration: `____________________________`
-  - Pizza name: `____________________________`
+  - Result: `PASS (2 tests, 2 passed, 0 failed)`
+  - Duration: `00:16`
+  - Pizza name: `Lab Pizza 20261105-101048`
 
 - **Step 4.8, run 2:**
-  - Result: `____________________________`
-  - Duration: `____________________________`
-  - Pizza name: `____________________________`
+  - Result: `PASS (2 tests, 2 passed, 0 failed)`
+  - Duration: `00:20`
+  - Pizza name: `Lab Pizza 20261105-101311`
 
 - **Step 4.9 (optional), browser and result:**
   - Browser: `____________________________`
