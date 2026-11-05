@@ -1,0 +1,17 @@
+# libraries and build output
+target/
+.venv/
+node_modules/
+__pycache__/
+cypress/cypress/downloads/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Robot temporary output
+robot/output.xml
+robot/log.html
+robot/report.html
+robot/*.png
