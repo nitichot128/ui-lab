@@ -74,13 +74,13 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
 ## Part 4: Cypress
 
 - **node --version:**
-  `____________________________`
+  `v24.16.0`
 
 - **npm --version:**
-  `____________________________`
+  `11.13.0`
 
 - **npx cypress version:**
-  `____________________________`
+  `16.2.1`
 
 - **Step 4.3, failure message for the wrong title:**
   `________________________________________________________`
