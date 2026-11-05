@@ -57,8 +57,7 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
   `Robot Framework 7.5.1`
 
 - **Step 3.2, failure message for the wrong title:**
-  `________________________________________________________`
-  `________________________________________________________`
+  `Title should have been 'Web Form' but was 'Web form'`
 
 - **Step 3.8, run 1:**
   - Result: `____________________________`
