@@ -83,8 +83,8 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
   `16.2.1`
 
 - **Step 4.3, failure message for the wrong title:**
-  `________________________________________________________`
-  `________________________________________________________`
+  `Timed out retrying after 10000ms.`
+  `Expected 'Web Form' but the page title was 'Web form'.`
 
 - **Step 4.6, tool and calories in the answer of POST /api/pizza:**
   - Tool: `____________________________`
