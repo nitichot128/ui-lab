@@ -104,8 +104,8 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
   - Pizza name: `Lab Pizza 20261105-101311`
 
 - **Step 4.9 (optional), browser and result:**
-  - Browser: `____________________________`
-  - Result: `____________________________`
+  - Browser: `Microsoft Edge`
+  - Result: `PASS, both specs passed`
 
 ---
 
