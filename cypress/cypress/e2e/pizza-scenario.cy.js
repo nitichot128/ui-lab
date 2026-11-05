@@ -111,5 +111,15 @@ describe('QP-01 A custom pizza reaches the admin list', () => {
 
     cy.get('#rate-result')
       .should('have.text', 'Please log in first.')
+
+    // Step 6: log in on the admin page
+    cy.adminLogin('admin', 'admin')
+    cy.contains('Latest pizza recommendations').should('be.visible')
+
+    // Step 7: find the new pizza in the admin list
+    cy.get('@tool').then((tool) => {
+        cy.contains('li', pizzaName)
+            .should('contain', '(tool=' + tool + ',')
+    })
   })
 })

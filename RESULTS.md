@@ -91,7 +91,7 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
   - Calories: `500`
 
 - **Step 4.7, the line of the admin list that shows your pizza:**
-  `________________________________________________________`
+  `Lab Pizza 20261105-100516 (tool=Pizza cutter, ingredients_number=5)`
 
 - **Step 4.8, run 1:**
   - Result: `____________________________`
