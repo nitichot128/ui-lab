@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation        Keywords for the QuickPizza pages that QP-01 visits.
 Library              SeleniumLibrary    timeout=10s
+Library              String
 
 *** Variables ***
 ${URL}                https://quickpizza.grafana.com
@@ -35,3 +36,26 @@ Fill In The Pizza Request
     List Selection Should Be    css:select    ${tool}
     Checkbox Should Be Selected    id:default-checkbox
     Textfield Value Should Be    css:input#pizza-name    ${name}
+Ask For A Pizza
+    [Documentation]    QP-01 step 4. Click Pizza, Please! and wait.
+    Click Button    name:pizza-please
+    Wait Until Element Contains    id:recommendations    Name:
+Get Recommended Tool
+    [Documentation]    Return the tool of the recommended pizza.
+    ${line}=    Get Text    xpath://p[starts-with(.,'Tool:')]
+    ${tool}=    Remove String    ${line}    Tool:${SPACE}
+    RETURN    ${tool}
+Get Calories Per Slice
+    [Documentation]    Return the calories per slice of the pizza.
+    ${line}=    Get Text    xpath://p[starts-with(.,'Calories per slice:')]
+    ${calories}=    Remove String    ${line}    Calories per slice:${SPACE}
+    RETURN    ${calories}
+Recommendation Should Keep The Restrictions
+    [Documentation]    QP-01 step 4. Check the name, tool and calories.
+    [Arguments]    ${name}    ${excluded tool}    ${max calories}
+    Element Should Contain    id:recommendations    Name: ${name}
+    ${tool}=    Get Recommended Tool
+    Should Not Be Equal    ${tool}    ${excluded tool}
+    ${calories}=    Get Calories Per Slice
+    Should Be True    ${calories} <= ${max calories}
+    RETURN    ${tool}
