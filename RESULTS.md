@@ -1,11 +1,3 @@
-## Part 0
-- Step 0.1, Chrome version: 157.0.8103.39
-- Step 0.3, ChromeDriver version: 157.0.8103.38
-- Step 0.4, locator of Pizza, Please!: name=pizza-please
-- Step 0.4, locator of Excluded tools: css=select
-- Step 0.4, locator of Must be vegetarian: id=default-checkbox
-- Step 0.4, locator of Custom Pizza Name: css=input#pizza-name
-
 # UI Lab Results
 
 Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
@@ -34,8 +26,8 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
 
 - **Step 0.5, pizza name, tool and calories of the run by hand:**
   - Pizza name: `Lab Pizza 20261105-090900`
-  - Tool: `Knife`
-  - Calories per slice: `600`
+  - Tool: `Scissors`
+  - Calories per slice: `550`
 
 ### QP-01 Manual Run
 
@@ -61,12 +53,12 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
 
 - **Step 3.8, run 1:**
   - Result: `PASS (1 test, 1 passed, 0 failed)`
-  - Elapsed time: `	00:00:10.237`
+  - Elapsed time: `00:00:10.237`
   - Pizza name: `Lab Pizza 20261105-093519`
 
 - **Step 3.8, run 2:**
   - Result: `PASS (1 test, 1 passed, 0 failed)`
-  - Elapsed time: `	00:00:09.259`
+  - Elapsed time: `00:00:09.259`
   - Pizza name: `Lab Pizza 20261105-093538`
 
 ---
@@ -118,11 +110,7 @@ What change to the page would allow the test to use an id, and why would that he
 
 **Answer:**
 
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
+The tests locate Max Calories per Slice through its label because several number inputs share the same id, so the id cannot uniquely identify the correct field. The page could be improved by giving this field a unique id such as max-calories. This would make the locator shorter, clearer, and easier to maintain.
 
 ---
 
@@ -133,11 +121,7 @@ Identify the kind of test oracle and describe one QuickPizza fault that this che
 
 **Answer:**
 
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
+Step 7 uses a consistency oracle because it compares the tool in the admin list with the tool shown in the recommendation. In my Cypress run, the admin list showed Pizza cutter, which matched the tool from the recommendation. This check could catch a fault where the customer page and admin page show different tools for the same pizza.
 
 ---
 
@@ -148,11 +132,7 @@ Propose a check and explain what information the test would need from the page o
 
 **Answer:**
 
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
+QP-01 could also check that the recommended pizza is vegetarian. In Cypress, the test could check that response.body.vegetarian from POST /api/pizza is true. The test needs this value from the page or another reliable source because the pizza name alone cannot prove that it is vegetarian.
 
 ---
 
@@ -168,13 +148,7 @@ Compare the two tools you used. Include:
 
 **Answer:**
 
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
+Robot Framework uses explicit waits such as Wait Until Element Is Visible, while Cypress automatically retries commands and assertions. My Robot runs took about 10.237 and 9.259 seconds, while the Cypress full runs took 16 and 20 seconds and included both specs. Robot logs were easy to follow by keyword, while Cypress screenshots and videos made the browser behavior easy to review.
 
 ---
 
@@ -185,13 +159,9 @@ Give at least two reasons based on your experience in this lab.
 
 **Answer:**
 
-I would choose `____________________________` for Project 2 because:
+I would choose Cypress for the automated UI tests in Project 2 because:
 
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
+Cypress automatically waits and retries commands, so I needed less explicit waiting code than in Robot Framework. It also supports cy.intercept() and automatically creates useful screenshots and videos for test evidence.
 
 ---
 
@@ -201,11 +171,7 @@ If QuickPizza changes the locator of the **Max Calories per Slice** field, expla
 
 **Answer:**
 
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
+If the Max Calories locator changes, I would update ${MAX CALORIES} in robot/resources/quickpizza.resource. The locator is stored in the resource file instead of directly in pizza_scenario.robot. This means I can fix the locator in one place without changing the test scenario.
 
 ---
 
@@ -215,8 +181,4 @@ Explain why QP-01 must stay as a **single test** in Cypress. Cypress clears cook
 
 **Answer:**
 
-____________________________________________________________
-
-____________________________________________________________
-
-____________________________________________________________
+QP-01 must stay as one Cypress test because Cypress clears cookies before each test. QuickPizza uses a cookie to keep the browser connected to the same server, so splitting Steps 6 and 7 into another test could connect to a different server. The admin page might then not contain the pizza created in Steps 1-5, causing Step 7 to fail.
