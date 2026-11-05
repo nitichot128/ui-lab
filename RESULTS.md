@@ -87,8 +87,8 @@ Tool parts that I chose: **Part 3: Robot Framework** and **Part 4: Cypress**
   `Expected 'Web Form' but the page title was 'Web form'.`
 
 - **Step 4.6, tool and calories in the answer of POST /api/pizza:**
-  - Tool: `____________________________`
-  - Calories: `____________________________`
+  - Tool: `Pizza cutter`
+  - Calories: `500`
 
 - **Step 4.7, the line of the admin list that shows your pizza:**
   `________________________________________________________`
